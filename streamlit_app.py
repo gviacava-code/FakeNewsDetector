@@ -21,6 +21,8 @@ text = st.text_area('Paste your text here:')
 model=pickle.load(open('./models/LinearRegressor.pkl', 'rb'))
 
 if st.button("Text Check"):
+    
+    # Print a Subheader
     st.subheader('Predicted Class')
  
     # Clean Text
@@ -32,4 +34,5 @@ if st.button("Text Check"):
         st.write("The news is real")
     else:
         st.write("the news is false")
+        
     # st.write(output)
