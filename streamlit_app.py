@@ -1,7 +1,7 @@
 import streamlit as st
-import pickle
 
 from src.data_wrangler import clean_text
+from src.predictor import predict
 
 import warnings
 warnings.filterwarnings("ignore", category=UserWarning)
@@ -13,26 +13,29 @@ st.set_page_config(
     initial_sidebar_state='expanded'
 )
 
-# title of the app
+# Title
 st.title('Fake News Detector')
+
+# Text box for user input
 text = st.text_area('Paste your text here:')
 
-# import the model
-model=pickle.load(open('./models/LinearRegressor.pkl', 'rb'))
+# Get model path
+model_path = './models/LinearRegressor.pkl'
 
+# Trigger actions when the button is clicked
 if st.button("Text Check"):
-    
-    # Print a Subheader
-    st.subheader('Predicted Class')
- 
+
     # Clean Text
     text=clean_text(text)
 
     # Make predictions
-    output=model.predict(text)
-    if output == 1:
-        st.write("The news is real")
+    predictions=predict(text, model_path)
+    
+    # Print a Subheader
+    st.subheader('Predicted Class')
+ 
+    # Make results
+    if predictions == 1:
+        st.write("The News is Real")
     else:
-        st.write("the news is false")
-        
-    # st.write(output)
+        st.write("The News is False")

@@ -1,4 +1,4 @@
 def load_model(model_path):
-    from sklearn.externals import joblib
-    model = joblib.load(model_path)
+    import pickle
+    model=pickle.load(open(model_path, 'rb'))
     return model
