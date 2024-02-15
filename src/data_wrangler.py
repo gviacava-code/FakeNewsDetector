@@ -5,8 +5,9 @@
 
 
 def clean_text(text):
-    text = wordopt(text)
-    text = vectorization(text)
+    # text = wordopt(text)
+    # text = vectorization(text)
+    text = embeddings(text)
     return text
 
 
@@ -29,3 +30,13 @@ def vectorization(text):
     model_vec=pickle.load(open('./models/vectorization.pkl', 'rb'))
     text=model_vec.transform(pd.Series(text))
     return text
+
+
+def embeddings(text):
+    from sentence_transformers import SentenceTransformer
+    model_embedding = SentenceTransformer('all-MiniLM-L6-v2')
+    text_list=[]
+    text_list.append(text)
+    text = model_embedding.encode(text_list)
+    return text
+    

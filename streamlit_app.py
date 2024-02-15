@@ -20,7 +20,8 @@ st.title('Fake News Detector')
 text = st.text_area('Paste your text here:')
 
 # Get model path
-model_path = './models/LinearRegressor.pkl'
+# model_path = './models/LinearRegressor.pkl'
+model_path = './models/tfmodel'
 
 # Trigger actions when the button is clicked
 if st.button("Text Check"):
@@ -35,7 +36,7 @@ if st.button("Text Check"):
     st.subheader('Predicted Class')
  
     # Make results
-    if predictions == 1:
+    if predictions > 0.5:
         st.write("The News is Real")
     else:
         st.write("The News is False")
