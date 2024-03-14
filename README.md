@@ -1,7 +1,15 @@
 
-# My Streamlit Demo App
+# Fake News Detection with Deep Learning
 
-This repository contains a demo Streamlit application, serving as an illustrative example for the accompanying blog post.
+This repository contains a deep learning model for the early detection of fake news patterns in text data using advanced natural language processing techniques. The project aims to provide a tool to identify potentially misleading information by addressing linguistic complexities inherent to misinformation.
+
+Key aspects include:
+
+- Applying Natural Language Processing (NLP) techniques
+- Testing different ML models to find the one that performs
+- Creating a Streamlit app that serve as a demonstration or proof-of-concept
+
+By strengthening the ability to discern authentic from misleading information, this work promotes transparency in the online information ecosystem. 
 
 ## Structure
 
@@ -13,14 +21,15 @@ The repository is structured as follows:
 |   |-- Fake.csv
 |   |-- True.csv
 |-- models/
-|   |-- heavy_model.pkl
+|   |-- tfmodel
+|   |-- AdaBoostClassifier.pkl
+|   |-- DecisionTreeClassfier.pkl
+|   |-- LinearReggresor.pkl
+|   |-- vectorization.pkl
 |-- src/
-|   |-- data_loader.py
+|   |-- data_wrangler.py
 |   |-- model_loader.py
 |   |-- predictor.py
-|   |-- transformer.py
-|   |-- analyser.py
-|   |-- forecast.py
 |-- streamlit_app.py
 |-- requirements.txt
 ```
@@ -30,12 +39,9 @@ The repository is structured as follows:
 - `data/`: Contains a dummy dataset used for demonstration purposes.
 - `models/`: Houses a placeholder model file.
 - `src/`: Contains the source code files for various functionalities:
-  - `data_loader.py`: Function to load the dataset.
+  - `data_wrangler.py`: Function to transform the user input.
   - `model_loader.py`: Function to load the model.
   - `predictor.py`: Function to make predictions using the loaded model.
-  - `transformer.py`: A dummy transformer function.
-  - `analyser.py`: A dummy analysis function.
-  - `forecast.py`: A dummy forecasting function.
 - `streamlit_app.py`: The main Streamlit application file.
 - `requirements.txt`: Lists the Python dependencies for the application.
 
@@ -55,4 +61,4 @@ streamlit run streamlit_app.py
 
 ## Note
 
-This repository is for demonstration purposes as part of a blog post. The functionalities are illustrative and may not represent a fully functional application.
+This repository is for demonstration purposes. The functionalities are illustrative and may not represent a fully functional application.
