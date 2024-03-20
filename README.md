@@ -1,6 +1,8 @@
 
 # Fake News Detection with Deep Learning
 
+![Summary Charts](./img/app_img.jpg)
+
 This repository contains a deep learning model for the early detection of fake news patterns in text data using advanced natural language processing techniques. The project aims to provide a tool to identify potentially misleading information by addressing linguistic complexities inherent to misinformation.
 
 Key aspects include:
